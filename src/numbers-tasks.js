@@ -121,7 +121,7 @@ function getAngleBetweenVectors(x1, y1, x2, y2) {
 }
 
 /**
- * Returns a last digit of a integer number.
+ * Returns a last digit of an integer number.
  * The input parameter will always be greater than or equal to zero and will be in decimal notation.
  *
  * @param {number} value
@@ -195,7 +195,6 @@ function roundToPowerOfTen(num, pow) {
  * Returns true is the number is prime; otherwise false.
  * See: https://en.wikipedia.org/wiki/Primality_test
  *
- * @param {number}
  * @return {boolean}
  *
  * @example:
@@ -207,6 +206,7 @@ function roundToPowerOfTen(num, pow) {
  *   12 => false
  *   16 => false
  *   17 => true
+ * @param num
  */
 // eslint-disable-next-line consistent-return
 function isPrime(num) {
@@ -445,7 +445,6 @@ function isNumber(number) {
   return Number.isFinite(number);
 }
 
-console.log(isNumber(5));
 /**
  * Returns a boolean value indicating whether a number is an integer or not.
  *
@@ -638,7 +637,6 @@ function getHypotenuse(a, b) {
  * Returns count of odd numbers from zero to the resulting number.
  * The resulting number is taken into account.
  *
- * @param {number} number
  * @return {number}
  *
  * @example:
@@ -646,6 +644,7 @@ function getHypotenuse(a, b) {
  * 5  => 3
  * 10 => 5
  * 15 => 8
+ * @param n
  */
 function getCountOfOddNumbers(n) {
   if (n < 0) {
@@ -654,7 +653,6 @@ function getCountOfOddNumbers(n) {
   return Math.floor((n + 1) / 2);
 }
 
-console.log(getCountOfOddNumbers(-5));
 module.exports = {
   getRectangleArea,
   getCircleCircumference,
