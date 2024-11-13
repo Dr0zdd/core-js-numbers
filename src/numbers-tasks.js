@@ -14,7 +14,7 @@
  *.
  @param {number} width
  @param {number} height
-  @return {number}
+ @return {number}
  *
  * @example:
  *   5, 10 => 50
@@ -53,45 +53,11 @@ function getCircleCircumference(radius) {
  *  10, 0  => 5
  *  -3, 3  => 0
  */
-const getAverage = (/* value1, value2 */) => {
-  throw new Error('Not implemented');
-  // // Проверка на то, являются ли значения числами
-  // if (typeof value1 !== 'number' || typeof value2 !== 'number') {
-  //   return 0;
-  // }
-  //
-  // if (
-  //   value1 === Number.MAX_VALUE ||
-  //   value2 === Number.MAX_VALUE ||
-  //   value1 === Number.MIN_VALUE ||
-  //   value2 === Number.MIN_VALUE
-  // ) {
-  //   return 0;
-  // }
-  // // Проверка на деление на ноль и переполнение
-  // if (
-  //   value1 === Infinity ||
-  //   value2 === Infinity ||
-  //   value1 === -Infinity ||
-  //   value2 === -Infinity
-  // ) {
-  //   return 0;
-  // }
-  //
-  // const sum = value1 + value2;
-  //
-  // if (sum === 0) {
-  //   return 0;
-  // }
-  //
-  // // Проверка на переполнение
-  // if (sum === Infinity || sum === -Infinity) {
-  //   return 0;
-  // }
-  //
-  // return sum / 2;
+const getAverage = (value1, value2) => {
+  return value1 / 2 + value2 / 2;
 };
 
+// console.log(getAverage(Number.MAX_VALUE - 2, Number.MAX_VALUE));
 /**
  * Returns a distance between two points by cartesian coordinates.
  *
@@ -170,6 +136,7 @@ function getAngleBetweenVectors(x1, y1, x2, y2) {
 function getLastDigit(value) {
   return value % 10;
 }
+
 /**
  * Returns a number by given string representation.
  *
@@ -315,6 +282,7 @@ function getFibonacciNumber(index) {
   }
   return getFibonacciNumber(index - 1) + getFibonacciNumber(index - 2);
 }
+
 /**
  * Returns the sum of all numbers from 1 to n.
  *
@@ -473,9 +441,11 @@ function getNumberValue(number) {
  * 5        => true
  * '5'      => false
  */
-function isNumber(/* number */) {
-  throw new Error('Not implemented');
+function isNumber(number) {
+  return Number.isFinite(number);
 }
+
+console.log(isNumber(5));
 /**
  * Returns a boolean value indicating whether a number is an integer or not.
  *
@@ -502,9 +472,15 @@ function isInteger(number) {
  * 'abcdefgh'      => NaN
  */
 function getFloatOnString(str) {
-  return Number(str);
+  // const parts = str.split(/[^0-9.-]+/);
+  // if (parts[0] === '') return NaN;
+  // return Number(parts[0]);
+  return Number.parseFloat(str);
 }
 
+//
+// console.log(getFloatOnString('4.567abcdefgh'));
+// console.log(getFloatOnString('a'));
 /**
  * Returns an integer of the specified base or, if the number cannot be parsed
  * from the argument, returns NaN.
@@ -522,6 +498,7 @@ function getFloatOnString(str) {
 function getIntegerOnString(str, base) {
   return Number.parseInt(str, base);
 }
+
 /**
  * Returns whether a number is a safe integer.
  *
@@ -610,6 +587,7 @@ function getIntegerPartNumber(number) {
 function getSumOfNumbers(x1, x2, x3) {
   return Math.round((x1 + x2 + x3) * 100) / 100;
 }
+
 /**
  * Returns the largest number.
  *
@@ -623,8 +601,7 @@ function getSumOfNumbers(x1, x2, x3) {
  * 0, 5   => 5
  */
 function getMaxNumber(firstNumber, secondNumber) {
-  if (firstNumber > secondNumber) return firstNumber;
-  return secondNumber;
+  return Math.max(firstNumber, secondNumber);
 }
 
 /**
@@ -642,6 +619,7 @@ function getMaxNumber(firstNumber, secondNumber) {
 function getRandomInteger(min, max) {
   return Math.floor(Math.random() * (max - min - 1)) + min;
 }
+
 /**
  * Returns the length of the hypotenuse of a right triangle.
  *
@@ -655,6 +633,7 @@ function getRandomInteger(min, max) {
 function getHypotenuse(a, b) {
   return Math.hypot(a, b);
 }
+
 /**
  * Returns count of odd numbers from zero to the resulting number.
  * The resulting number is taken into account.
@@ -669,14 +648,13 @@ function getHypotenuse(a, b) {
  * 15 => 8
  */
 function getCountOfOddNumbers(n) {
-  // Ensure n is a non-negative integer
-  if (n <= 0) return 0;
-
-  // Calculate the count of odd numbers from 0 to n
+  if (n < 0) {
+    return Math.floor((-n + 1) / 2);
+  }
   return Math.floor((n + 1) / 2);
 }
-console.log(getCountOfOddNumbers(0));
 
+console.log(getCountOfOddNumbers(-5));
 module.exports = {
   getRectangleArea,
   getCircleCircumference,
