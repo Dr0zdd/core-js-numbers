@@ -611,7 +611,7 @@ function getMaxNumber(firstNumber, secondNumber) {
  * @return {number}
  *
  * @example:
- * 1, 2  => 1 | 2n
+ * 1, 2  => 1 | 2
  * -5, 0 => -5 | -4 | -3 | -2 | -1 | 0
  * -1, 1 => -1 | 0 | 1
  */
