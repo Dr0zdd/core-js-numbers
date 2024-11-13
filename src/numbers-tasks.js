@@ -6,9 +6,6 @@
  * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math     *
  *                                                                                           *
  ******************************************************************************************* */
-
-// const { validateLegacyPlugin } = require("mocha/lib/cli/run-helpers");
-
 /**
  * Returns an area of a rectangle given by width and height.
  *.
@@ -56,8 +53,6 @@ function getCircleCircumference(radius) {
 const getAverage = (value1, value2) => {
   return value1 / 2 + value2 / 2;
 };
-
-// console.log(getAverage(Number.MAX_VALUE - 2, Number.MAX_VALUE));
 /**
  * Returns a distance between two points by cartesian coordinates.
  *
@@ -208,15 +203,10 @@ function roundToPowerOfTen(num, pow) {
  *   17 => true
  * @param num
  */
-// eslint-disable-next-line consistent-return
 function isPrime(num) {
   if (num <= 1) return false;
   if (num <= 3) return true;
-
-  // Проверка делимости на 2 и 3
   if (num % 2 === 0 || num % 3 === 0) return false;
-
-  // Проверка делимости от 5 до sqrt(num)
   for (let i = 5; i * i <= num; i += 6) {
     if (num % i === 0 || num % (i + 2) === 0) return false;
   }
@@ -240,11 +230,7 @@ function isPrime(num) {
  *   toNumber(new Number(42), 0) => 42
  */
 function toNumber(value, def) {
-  const parsedValue = Number.parseFloat(value);
-  // eslint-disable-next-line no-restricted-globals
-  if (!isNaN(parsedValue)) {
-    return parsedValue;
-  }
+  if (Number.isFinite(Number(value))) return Number(value);
   return def;
 }
 
@@ -295,14 +281,8 @@ function getFibonacciNumber(index) {
  *   1  => 1
  */
 function getSumToN(n) {
-  let sum = 0;
-  // eslint-disable-next-line no-plusplus
-  for (let i = 1; i <= n; i++) {
-    sum += i;
-  }
-  return sum;
+  return (n * (n + 1)) / 2;
 }
-
 /**
  * Returns the sum of the digits of a given number.
  *
@@ -471,15 +451,8 @@ function isInteger(number) {
  * 'abcdefgh'      => NaN
  */
 function getFloatOnString(str) {
-  // const parts = str.split(/[^0-9.-]+/);
-  // if (parts[0] === '') return NaN;
-  // return Number(parts[0]);
   return Number.parseFloat(str);
 }
-
-//
-// console.log(getFloatOnString('4.567abcdefgh'));
-// console.log(getFloatOnString('a'));
 /**
  * Returns an integer of the specified base or, if the number cannot be parsed
  * from the argument, returns NaN.
